@@ -1,0 +1,141 @@
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>tambahprodukdetail</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content>
+
+  <div class="sticky">
+
+    <ion-navbar>
+      <!-- <ion-title>Tambah Produk Detail</ion-title> -->
+      <ion-title>
+        <p style="font-size:4vw">{{namabarang}}</p>
+      </ion-title>
+      <!-- <ion-buttons end>
+        <button ion-button icon-only (click)="getDismiss(false)">
+          <ion-icon md="close-outline"></ion-icon>
+        </button>
+      </ion-buttons> -->
+    </ion-navbar>
+
+  </div>
+
+  <div>
+    <ion-list>
+
+      <!-- <ion-item>
+        <ion-label color="black">Quantity</ion-label>
+        <ion-input class="inputs" type="number" disabled="true" placeholder="0" [(ngModel)]="quantity"
+          (ionChange)="setTotalPrice()" (click)="showPrompt()">
+        </ion-input>
+      </ion-item> -->
+
+      <ion-item (click)="showPrompt()">
+        <ion-label color="black">Quantity</ion-label>
+        <ion-note color="black" item-end>{{quantity}}</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="black">Tipe</ion-label>
+        <ion-select [(ngModel)]="type_pack" (ionChange)="setTotalPrice()" interface="popover">
+          <ion-option value="PCS">PCS</ion-option>
+          <ion-option value="LSN">LSN</ion-option>
+          <ion-option value="CRT">CRT</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- <ion-item>
+        <ion-label color="black">Promo</ion-label>
+        <ion-select [(ngModel)]="type_promo" (ionChange)="getMarketingTPType($event)" interface="popover">
+          <ion-option 
+            *ngFor="let tipe of marketingtp; let i = index" 
+            style="color: black;" 
+            [value]="{tipepromo: tipe.id, namapromo: tipe.Keterangan}">{{tipe.Keterangan}}
+          </ion-option>
+        </ion-select>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label color="black">Promo</ion-label>
+        <ion-select (ionChange)="getMarketingTPType($event)" interface="popover">
+          <ion-option selected>No Bonus</ion-option>
+          <ion-option *ngFor="let tipe of marketingtp" style="color: black;" value="{{tipe.id}},{{tipe.Keterangan}}">{{tipe.Keterangan}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- <ion-item>
+        <ion-label color="black">Tanggal (Expr)</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="pick_month_expr">
+        </ion-datetime>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label color="black">Harga</ion-label>
+        <ion-input color="black" class="inputs" type="text" disabled="true" value="{{hjualkecil | number}}">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="black">Diskon Toko</ion-label>
+        <ion-input color="black" class="inputs" type="text" disabled="true" value="{{disc}}%">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="black">Potongan Diskon</ion-label>
+        <ion-input color="black" class="inputs" type="text" disabled="true" value="{{price_value_disc | number}}"
+          placeholder="0">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="black">Netto</ion-label>
+        <ion-input color="black" class="inputs" type="text" disabled="true" value="{{total_netto2 | number}}"
+          placeholder="0">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="black">Netto + PPN</ion-label>
+        <ion-input color="black" class="inputs" type="text" disabled="true" value="{{total_netto | number}}"
+          placeholder="0">
+        </ion-input>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+
+
+</ion-content>
+
+<ion-footer style="background-color: white;">
+
+  <div padding>
+
+    <div padding>
+      <div style="border: 1px solid grey; border-radius: 10px;">
+        <textarea style="padding-top: 3%;padding-left: 3%;" #myInput id="myInput" rows="2" maxLength="50"
+          (keyup)="resize()" placeholder="Ketik note disini" [(ngModel)]="note"></textarea>
+      </div>
+    </div>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button block clear class="azz-button-noshadow" color="danger"
+          (click)="getDismiss(false)">Batal</button>
+      </ion-col>
+      <ion-col col-8>
+        <!-- <button ion-button class="azz-button" block (click)="getDataInput()">Tambah Produk</button> -->
+        <button ion-button class="azz-button" block (click)="addProductConfirm()">Tambah Produk</button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+
+</ion-footer>

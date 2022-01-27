@@ -1,0 +1,69 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Detail Kunjungan</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div pending>
+    <ion-item>
+      <ion-label stacked>ID Check in</ion-label>
+      <ion-input type="text" value="{{idcheckin}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Kode Outlet</ion-label>
+      <ion-input type="text" value="{{kdoutlet}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Nama Outlet</ion-label>
+      <ion-input type="text" value="{{nama_outlet}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Tanggal Kunjungan</ion-label>
+      <ion-input type="text" value="{{waktuin | date:'dd MMMM yyyy'}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Jam Kunjungan Masuk Toko</ion-label>
+      <ion-input type="text" value="{{waktuin | date:'HH:mm:ss'}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Jam Kunjungan Keluar Toko</ion-label>
+      <ion-input type="text" value="{{waktuout | date:'HH:mm:ss'}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Status Kunjungan</ion-label>
+      <ion-input type="text" value="{{statuscekin}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>True Location</ion-label>
+      <ion-input type="text" value="{{truelocation}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Latitude</ion-label>
+      <ion-input type="text" value="{{latitude}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Longitude</ion-label>
+      <ion-input type="text" value="{{longitude}}" readonly></ion-input>
+    </ion-item>
+  </div>
+
+  <br>
+
+  <div #map id="map" style="height: 40%; width: 100%; border-radius: 10px; border: 1px solid rgb(195, 191, 191);"></div>
+  <p style="text-align: center; color: grey;">Posisi Ketika Kunjungan</p>
+
+
+  <br>
+
+  <button ion-button class="azz-button" color="goldenrod" block (click)="reOrder()">Buat Pesanan</button>
+  <br>
+  <button ion-button block clear class="azz-button-noshadow" (click)="getDismiss()">Kembali</button>
+
+  <br>
+
+</ion-content>

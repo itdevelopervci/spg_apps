@@ -1,0 +1,47 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Produk</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="getMasterProduct()">
+        <ion-icon md="sync-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <div padding>
+    <ion-searchbar class="searchbar" (ionInput)="getItems($event)"></ion-searchbar>
+  </div>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div>
+
+    <ion-list>
+      <ion-item *ngFor="let item of items | slice:0:100; let i=index">
+        <p style=" font-size: 10px; color: grey;">{{item.PCode}}</p>
+        <h2 style="font-weight: bold;">{{item.NamaBarang}}</h2>
+        <p>{{item.GAkhir}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="items == ''">
+      <ion-item>
+        <p>Produk tidak ditemukan</p>
+      </ion-item>
+    </ion-list>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+
+</ion-content>

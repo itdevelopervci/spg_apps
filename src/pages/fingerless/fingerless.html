@@ -1,0 +1,53 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Fingerless Presence</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div #map id="map" style="height: 50%; width: 100%; border-radius: 10px;"></div>
+
+  <div>
+    <ion-grid>
+      <ion-row style="text-align: center;">
+        <ion-col>
+          <ion-card class="azz_card">
+            <ion-card-header>
+              <button ion-button clear large block icon-only (click)="getScanQR()">
+                <ion-icon md="qr-code-outline" style="color: green"></ion-icon>
+              </button>
+            </ion-card-header>
+            <ion-card-content style="margin-top: -15px;font-size: 10px;">
+              Scan QR
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card class="azz_card">
+            <ion-card-header>
+              <button ion-button clear large block icon-only (click)="getHistory()">
+                <ion-icon md="calendar-outline" style="color: green"></ion-icon>
+              </button>
+            </ion-card-header>
+            <ion-card-content style="margin-top: -15px;font-size: 10px;">
+              History
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- <div *ngIf="distance">
+    <ion-card class="azz_card">
+      <ion-card-content>
+        Distance : {{ distance }} Meters
+      </ion-card-content>
+    </ion-card>
+  </div> -->
+
+</ion-content>

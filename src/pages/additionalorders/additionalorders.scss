@@ -1,0 +1,44 @@
+page-additionalorders {
+
+  .slide-left {
+    -webkit-animation: slide-left 1.9s cubic-bezier(0.680, -0.550, 0.265, 1.550) 2 both;
+    animation: slide-left 1.9s cubic-bezier(0.680, -0.550, 0.265, 1.550) 2 both;
+  }
+
+  @-webkit-keyframes slide-left {
+    0% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+
+    20% {
+      -webkit-transform: translateX(-20px);
+      transform: translateX(-20px);
+    }
+  }
+
+  @keyframes slide-left {
+    0% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+
+    20% {
+      -webkit-transform: translateX(-20px);
+      transform: translateX(-20px);
+    }
+  }
+
+  ion-select {
+    font-size: 14px;
+  }
+
+  ion-input {
+    font-size: 14px;
+  }
+
+  ion-datetime {
+    font-size: 14px;
+  }
+
+}

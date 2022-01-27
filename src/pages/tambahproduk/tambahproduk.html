@@ -1,0 +1,92 @@
+<!-- <ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Tambah Produk</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="getDismiss(false)">
+        <ion-icon md="close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content>
+
+  <div class="sticky">
+
+    <ion-navbar>
+      <ion-title>Tambah Produk</ion-title>
+      <!-- <ion-buttons end>
+        <button ion-button icon-only (click)="getMasterProduct()">
+          <ion-icon md="sync-outline"></ion-icon>
+        </button>
+      </ion-buttons> -->
+      <ion-buttons end>
+        <button ion-button icon-only (click)="getDismiss(true)">
+          <ion-icon md="close-outline"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col style="margin: auto;" col-2>
+            <button ion-button icon-only clear (click)="getMasterProduct()">
+              <ion-icon md="sync-outline"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <ion-searchbar class="searchbar" (ionInput)="getItems($event)"></ion-searchbar>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+  </div>
+
+  <div>
+
+    <ion-list>
+      <ion-item *ngFor="let item of items | slice:0:50; let i=index"
+        (click)="addProductDetail(item.PCode,item.NamaBarang,item.HJualkecil,item.KonversiKcl,item.KonversiBsr,item.ppn)">
+        <p style=" font-size: 10px; color: grey;">{{item.PCode}}</p>
+        <h2 style="font-weight: bold;">{{item.NamaBarang}}</h2>
+        <p>{{item.GAkhir}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="items == ''">
+      <ion-item>
+        <p>Produk tidak ditemukan</p>
+      </ion-item>
+    </ion-list>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+
+
+</ion-content>
+
+<div class="center_bottom">
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col col-6>
+        <button ion-button class="azz-button" (click)="getDismiss(true)">
+          Kembali
+        </button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

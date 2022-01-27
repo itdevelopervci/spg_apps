@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Konfirmasi Data</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Nama</ion-label>
+      <ion-input type="text" value="{{full_name}}" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" value="{{username}}" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Kode Sales</ion-label>
+      <ion-input type="text" value="{{kdsales}}" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Nama Cabang</ion-label>
+      <ion-input type="text" value="{{namacabang}}" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Nama Depo</ion-label>
+      <ion-input type="text" value="{{namadepo}}" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Server</ion-label>
+      <ion-input type="text" value="{{NamaServer}}" readonly></ion-input>
+    </ion-item>
+
+    <ion-item nolines></ion-item>
+  
+  </ion-list>
+
+  <br>
+  <br>
+  <button ion-button block color='goldenrod' class="azz-button" (click)="setServer()">Konfirmasi</button>
+  <br>
+  <button ion-button block clear class="azz-button-noshadow" (click)="backToLogin()">Kembali</button>
+
+
+</ion-content>

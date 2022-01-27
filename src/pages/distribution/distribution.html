@@ -1,0 +1,192 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Distribution</ion-title>
+    <ion-buttons end id="filter_on" (click)="showFilter()">
+      <button ion-button icon-only>
+        <ion-icon md="funnel-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end id="filter_off" style="display: none;" (click)="hideFilter()">
+      <button ion-button icon-only>
+        <ion-icon md="funnel" color="primary"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div style="display: none;" id="div_filter" class="focus-in-contract-bck">
+    <ion-list class="list_filter">
+      <ion-item>
+        <ion-label>Periode</ion-label>
+        <ion-select [(ngModel)]="monthnow" interface="popover">
+          <ion-option value="01">Jan</ion-option>
+          <ion-option value="02">Feb</ion-option>
+          <ion-option value="03">Mar</ion-option>
+          <ion-option value="04">Apr</ion-option>
+          <ion-option value="05">Mei</ion-option>
+          <ion-option value="06">Jun</ion-option>
+          <ion-option value="07">Jul</ion-option>
+          <ion-option value="08">Agu</ion-option>
+          <ion-option value="09">Sep</ion-option>
+          <ion-option value="10">Okt</ion-option>
+          <ion-option value="11">Nov</ion-option>
+          <ion-option value="12">Des</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tahun</ion-label>
+        <ion-select [(ngModel)]="yearnow" interface="popover">
+          <ion-option value="2017">2017</ion-option>
+          <ion-option value="2018">2018</ion-option>
+          <ion-option value="2019">2019</ion-option>
+          <ion-option value="2020">2020</ion-option>
+          <ion-option value="2021">2021</ion-option>
+          <ion-option value="2022">2022</ion-option>
+          <ion-option value="2023">2023</ion-option>
+          <ion-option value="2024">2024</ion-option>
+          <ion-option value="2025">2025</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tipe</ion-label>
+        <ion-select [(ngModel)]="tipe" interface="popover">
+          <ion-option value="00">All</ion-option>
+          <ion-option value="01">DISTRIBUSI</ion-option>
+          <ion-option value="02">Existing & NPL</ion-option>
+          <ion-option value="03">Existing</ion-option>
+          <ion-option value="04">NPL</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Brand</ion-label>
+        <ion-select [(ngModel)]="brand" interface="popover">
+          <ion-option value="00">All</ion-option>
+          <ion-option value="01">MIRANDA</ion-option>
+          <ion-option value="02">HERBORIST</ion-option>
+          <ion-option value="02">VICTORIA</ion-option>
+          <ion-option value="02">SECRET CLEAN</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <button ion-button block class="azz-button">Terapkan</button>
+    <br>
+    <button ion-button block class="azz-button-noshadow" clear (click)="hideFilter()">Tutup</button>
+  </div>
+
+  <!-- <div>
+    <p style="font-size: 28px; margin-bottom: -5%;">Welcome </p>
+    <p>{{name}}</p>
+  </div> -->
+
+  <div style="margin-bottom: 50%;" id="grafik">
+    <ion-slides pager>
+      <ion-slide style="background-color: white">
+        <canvas #barCanvas style="position: relative; height:40vh; width:90vw"></canvas>
+      </ion-slide>
+      <ion-slide style="background-color: white">
+        <canvas #pieCanvas style="position: relative; height:40vh; width:90vw"></canvas>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+</ion-content>
+
+<ion-footer no-border>
+  <div class="menus slide-in-bck-bottom">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div style="text-align: center;">
+            <button ion-fab color="danger" (click)="goToOtorisasiPage()">
+              <ion-icon md="key-outline"></ion-icon>
+            </button>
+            <p>Otorisasi</p>
+          </div>
+        </ion-col>
+        <ion-col>
+          <!-- <div>
+            <button ion-fab color="primary">
+              <ion-icon md="stats-chart-outline"></ion-icon>
+            </button>
+            <p>Grafik</p>
+          </div> -->
+        </ion-col>
+        <ion-col>
+          <!-- <div>
+            <button ion-fab color="dark" (click)="showMenuPane()">
+              <ion-icon md="funnel-outline"></ion-icon>
+            </button>
+            <p>Filter</p>
+          </div> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>
+
+<div class="dist-cupertino-pane" style="display: none;">
+  <h1>Filter</h1>
+  <div class="content" overflow-y>
+    <ion-list class="list_filter">
+      <ion-item>
+        <ion-label>Periode</ion-label>
+        <ion-select [(ngModel)]="month">
+          <ion-option value="01">Jan</ion-option>
+          <ion-option value="02">Feb</ion-option>
+          <ion-option value="03">Mar</ion-option>
+          <ion-option value="03">Apr</ion-option>
+          <ion-option value="03">Mei</ion-option>
+          <ion-option value="03">Jun</ion-option>
+          <ion-option value="03">Jul</ion-option>
+          <ion-option value="03">Agu</ion-option>
+          <ion-option value="03">Sep</ion-option>
+          <ion-option value="03">Okt</ion-option>
+          <ion-option value="03">Nov</ion-option>
+          <ion-option value="03">Des</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tahun</ion-label>
+        <ion-select [(ngModel)]="year">
+          <ion-option value="2017">2017</ion-option>
+          <ion-option value="2018">2018</ion-option>
+          <ion-option value="2019">2019</ion-option>
+          <ion-option value="2020">2010</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tipe</ion-label>
+        <ion-select [(ngModel)]="tipe">
+          <ion-option value="00">All</ion-option>
+          <ion-option value="01">DISTRIBUSI</ion-option>
+          <ion-option value="02">Existing & NPL</ion-option>
+          <ion-option value="03">Existing</ion-option>
+          <ion-option value="04">NPL</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Brand</ion-label>
+        <ion-select [(ngModel)]="brand">
+          <ion-option value="00">All</ion-option>
+          <ion-option value="01">MIRANDA</ion-option>
+          <ion-option value="02">HERBORIST</ion-option>
+          <ion-option value="02">VICTORIA</ion-option>
+          <ion-option value="02">SECRET CLEAN</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <br>
+    <button ion-button block class="azz-button" (click)="closeMenuPane()">Terapkan</button>
+  </div>
+</div>

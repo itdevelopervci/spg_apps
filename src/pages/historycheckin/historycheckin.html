@@ -1,0 +1,75 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Riwayat Kunjungan</ion-title>
+    <ion-buttons [ngSwitch]="srvr" end>
+      <button *ngSwitchCase="'server'" ion-button icon-only (click)="reloadCheckin()">
+        <ion-icon md="sync-outline"></ion-icon>
+      </button>
+      <button *ngSwitchCase="'local'" ion-button icon-only>
+        <ion-icon md="send-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="srvr">
+      <ion-segment-button style="text-transform: none;" (click)="getDataServer()" value="server">
+        Terkirim
+      </ion-segment-button>
+      <ion-segment-button style="color: red; text-transform: none;" (click)="getDataLocal()" value="local">
+        Tertunda {{cekin_pending_total}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div [ngSwitch]="srvr">
+
+    <div *ngSwitchCase="'server'">
+
+      <div *ngFor="let list of checkin_list">
+        <div *ngIf="list.waktu_in != ''"><br>
+          <p>{{list.waktu_in | date:'EEEE, dd MMMM yyyy'}}</p>
+        </div>
+        <ion-card class="azz_card"
+          (click)="getDetailCheckIn(list.idcheckin, list.kd_outlet, list.nama_outlet, list.on_loc, list.lat, list.lng, 
+          list.keterangan, list.waktu_cin, list.waktu_cout, list.nilai, list.trm)">
+          <ion-list>
+            <button ion-item>
+              <p>{{list.idcheckin}}</p>
+              {{list.nama_outlet}}
+              <ion-icon md="checkmark-circle-outline" color="{{list.color_status}}" item-end></ion-icon>
+            </button>
+          </ion-list>
+        </ion-card>
+      </div>
+
+    </div>
+
+    <div *ngSwitchCase="'local'">
+
+      <div *ngFor="let list of cekin_pending">
+        <div *ngIf="list.tgl_in != ''"><br>
+          <p>{{list.waktu_in | date:'EEEE, dd MMMM yyyy'}}</p>
+        </div>
+        <ion-card class="azz_card">
+          <ion-list>
+            <button ion-item>
+              <p>{{list.IdCekin}}</p>
+              {{list.nama_outlet}}
+              <!-- <ion-icon md="checkmark-circle-outline" color="grey" item-end></ion-icon> -->
+            </button>
+          </ion-list>
+        </ion-card>
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>

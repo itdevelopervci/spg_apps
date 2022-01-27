@@ -1,0 +1,71 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Riwayat Transaksi</ion-title>
+    <ion-buttons [ngSwitch]="srvr" end>
+      <button *ngSwitchCase="'server'" ion-button icon-only (click)="reloadTrans()">
+        <ion-icon md="sync-outline"></ion-icon>
+      </button>
+      <button *ngSwitchCase="'local'" ion-button icon-only>
+        <ion-icon md="send-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="srvr">
+      <ion-segment-button style="text-transform: none;" (click)="getDataServer()" value="server">
+        Terkirim
+      </ion-segment-button>
+      <ion-segment-button style="color: red; text-transform: none;" (click)="getDataLocal()" value="local">
+        Tertunda {{so_pending}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div [ngSwitch]="srvr">
+
+    <div *ngSwitchCase="'server'">
+
+      <div *ngFor="let list of trans_so_list">
+        <div *ngIf=" list.tgl_so != '' "><br>
+          <p>{{list.tgl_so | date:'EEEE, dd MMMM yyyy'}}</p>
+        </div>
+        <ion-card class="azz_card" (click)="getTransDetail(list.noso,list.nama_outlet,list.kdcabang,list.kdgudang)">
+          <ion-list>
+            <button ion-item>
+              <p>{{list.noso}}</p>
+              {{list.nama_outlet}}
+              <ion-icon md="checkmark-circle-outline" color="{{list.color_status}}" item-end></ion-icon>
+            </button>
+          </ion-list>
+        </ion-card>
+      </div>
+
+    </div>
+
+    <div *ngSwitchCase="'local'">
+
+      <div *ngFor="let list of trans_so_list_pending">
+        <div *ngIf=" list.tgl_so != '' "><br>
+          <p>{{list.tgl_so | date:'EEEE, dd MMMM yyyy'}}</p>
+        </div>
+        <ion-card class="azz_card" (click)="getTransDetailPending(list.noso,list.nama_outlet)">
+          <ion-list>
+            <button ion-item>
+              <p>{{list.noso}}</p>
+              {{list.nama_outlet}}
+              <ion-icon md="alert-circle-outline" color="danger" item-end></ion-icon>
+            </button>
+          </ion-list>
+        </ion-card>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

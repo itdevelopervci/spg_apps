@@ -1,0 +1,207 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>
+      {{namaoutlet}}
+    </ion-title>
+  </ion-navbar>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+
+</ion-header>
+
+
+
+<ion-content class="bg">
+
+  <div class="container">
+    <h3>Faktur</h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>No Trans</th>
+            <th>Tgl Trans</th>
+            <th>Tgl JTO</th>
+            <th>Total Piutang</th>
+            <th>Total Bayar</th>
+            <th>Sisa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let histo of historyfaktur">
+            <td nowrap>{{histo.NoTrans}}</td>
+            <td nowrap>{{histo.TglTrans}}</td>
+            <td nowrap>{{histo.TglJto}}</td>
+            <td nowrap>{{histo.TotalPiutang}}</td>
+            <td nowrap>{{histo.TotalBayar}}</td>
+            <td nowrap>{{histo.Sisa}}</td>
+          </tr>
+          <tr>
+            <td nowrap>{{alertpesan2}}</td>
+            <td nowrap>{{alertpesan2}}</td>
+            <td nowrap>{{alertpesan2}}</td>
+            <td nowrap>{{alertpesan2}}</td>
+            <td nowrap>{{alertpesan2}}</td>
+          </tr>
+        </tbody>
+
+        <thead>
+          <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>Rp. {{historyfakturTotalPiutang | number}}</th>
+            <th>Rp. {{historyfakturTotalBayar | number}}</th>
+            <th>Rp. {{historyfakturSisa | number}}</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>Retur</h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>No Trans</th>
+            <th>Tgl Trans</th>
+            <th>Tgl JTO</th>
+            <th>Total Piutang</th>
+            <th>Total Bayar</th>
+            <th>Sisa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let histo of historyretur">
+            <td nowrap>{{histo.NoTrans}}</td>
+            <td nowrap>{{histo.TglTrans}}</td>
+            <td nowrap>{{histo.TglJto}}</td>
+            <td nowrap>{{histo.TotalPiutang}}</td>
+            <td nowrap>{{histo.TotalBayar}}</td>
+            <td nowrap>{{histo.Sisa}}</td>
+          </tr>
+          <tr>
+            <td nowrap>{{alertpesan3}}</td>
+            <td nowrap>{{alertpesan3}}</td>
+            <td nowrap>{{alertpesan3}}</td>
+            <td nowrap>{{alertpesan3}}</td>
+            <td nowrap>{{alertpesan3}}</td>
+            <td nowrap>{{alertpesan3}}</td>
+          </tr>
+        </tbody>
+
+        <thead>
+          <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>Rp. {{historyReturTotalPiutang | number}}</th>
+            <th>Rp. {{historyReturTotalBayar | number}}</th>
+            <th>Rp. {{historyreturSisa | number}}</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>Giro</h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>No Giro</th>
+            <th>Tgl Terima</th>
+            <th>Tgl JTO</th>
+            <th>Nilai Giro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let histo of giro">
+            <td nowrap>{{histo.NoGiro}}</td>
+            <td nowrap>{{histo.TglTerima}}</td>
+            <td nowrap>{{histo.TglJTo}}</td>
+            <td nowrap>{{histo.NilaiGiro}}</td>
+          </tr>
+          <tr>
+            <td nowrap>{{alertpesan4}}</td>
+            <td nowrap>{{alertpesan4}}</td>
+            <td nowrap>{{alertpesan4}}</td>
+            <td nowrap>{{alertpesan4}}</td>
+          </tr>
+        </tbody>
+
+        <thead>
+          <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>Rp. {{TotalFakturReturGiro | number}}</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>Faktur - Retur + Giro</h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th style="text-align: right;">Rp. {{totalAll | number}}</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>Pembayaran 3 bulan terakhir</h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>No Piutang</th>
+            <th>Tgl Faktur</th>
+            <th>Tgl Transaksi</th>
+            <th>Tipe</th>
+            <th>Ket</th>
+            <th>Bayar</th>
+            <th>Tempo Bayar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let histo of historytransaction">
+            <td nowrap>{{histo.NoPiutang}}</td>
+            <td nowrap>{{histo.TglFaktur}}</td>
+            <td nowrap>{{histo.TglTransaksi}}</td>
+            <td nowrap>{{histo.Tipe}}</td>
+            <td nowrap>{{histo.Ket}}</td>
+            <td nowrap>{{histo.Bayar}}</td>
+            <td nowrap>{{histo.hari}}</td>
+          </tr>
+          <tr>
+            <td nowrap>{{alertpesan}}</td>
+            <td nowrap>{{alertpesan}}</td>
+            <td nowrap>{{alertpesan}}</td>
+            <td nowrap>{{alertpesan}}</td>
+            <td nowrap>{{alertpesan}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</ion-content>

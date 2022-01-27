@@ -1,0 +1,51 @@
+<ion-content>
+  <div class="sticky">
+    <ion-navbar>
+      <ion-title>Pilih Outlet</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="getDismiss(false)">
+          <ion-icon md="close-outline"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col style="margin: auto;" col-2>
+            <button ion-button icon-only clear (click)="getMasterOutlet()">
+              <ion-icon md="sync-outline"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <ion-searchbar class="searchbar" (ionInput)="getItems($event)"></ion-searchbar>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+  <div style="border-radius: 20px;">
+    <ion-list style="border-radius: 20px;">
+      <ion-item *ngFor="let item of items | slice:0:100; let i=index"
+        (click)="selectOutlet(item.Nama,item.KdOutlet,item.KdDisc,item.Trm,item.payflag)">
+        <p style=" font-size: 10px; color: grey;">{{item.KdOutlet}}</p>
+        <h2 style="font-weight: bold;">{{item.Nama}}</h2>
+        <h3 nowrap>{{item.Alm1Toko}}</h3>
+        <p>{{item.KotaToko}}</p>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf="items == ''" style="border-radius: 20px;">
+      <ion-item>
+        <p>Outlet tidak ditemukan</p>
+      </ion-item>
+    </ion-list>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+
+</ion-content>

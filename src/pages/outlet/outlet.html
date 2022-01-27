@@ -1,0 +1,48 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Outlet</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="getMasterOutlet()">
+        <ion-icon md="sync-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <div padding>
+    <ion-searchbar class="searchbar" (ionInput)="getItems($event)"></ion-searchbar>
+  </div>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div>
+
+    <ion-list>
+      <ion-item *ngFor="let item of items | slice:0:50; let i=index">
+        <p style=" font-size: 10px; color: grey;">{{item.KdOutlet}}</p>
+        <h2 style="font-weight: bold;">{{item.Nama}}</h2>
+        <h3 nowrap>{{item.Alm1Toko}}</h3>
+        <p>{{item.KotaToko}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="items == ''">
+      <ion-item>
+        <p>Outlet tidak ditemukan</p>
+      </ion-item>
+    </ion-list>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+
+</ion-content>

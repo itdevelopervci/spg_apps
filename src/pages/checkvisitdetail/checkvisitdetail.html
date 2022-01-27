@@ -1,0 +1,75 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detail Kunjungan</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div>
+    <ion-item>
+      <ion-label stacked>ID Check in</ion-label>
+      <ion-input type="text" value="{{idcheckin}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Kode Sales</ion-label>
+      <ion-input type="text" value="{{kd_salesman}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Nama Salesman</ion-label>
+      <ion-input type="text" value="{{namasales}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Kode Outlet</ion-label>
+      <ion-input type="text" value="{{kd_outlet}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Nama Outlet</ion-label>
+      <ion-input type="text" value="{{nama_outlet}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Tanggal Kunjungan</ion-label>
+      <ion-input type="text" value="{{waktu_cin | date:'dd MMMM yyyy'}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Jam Kunjungan Masuk Toko</ion-label>
+      <ion-input type="text" value="{{waktu_cin | date:'HH:mm:ss'}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Jam Kunjungan Keluar Toko</ion-label>
+      <ion-input type="text" value="{{waktu_cout | date:'HH:mm:ss'}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Status Kunjungan</ion-label>
+      <ion-input type="text" value="{{nama_tipe_cekin}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>True Location</ion-label>
+      <ion-input type="text" value="{{truelocation}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Latitude</ion-label>
+      <ion-input type="text" value="{{lat}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Longitude</ion-label>
+      <ion-input type="text" value="{{lng}}" readonly></ion-input>
+    </ion-item>
+
+    <br>
+
+    <div #map id="map" class="mapview"></div>
+    <p style="text-align: center; color: grey; margin-bottom: 10%;">Posisi Ketika Kunjungan</p>
+
+    <br>
+  
+    <div>
+      <br>
+      <button ion-button block clear color="dark" class="azz-button-noshadow" (click)="getBack()">Kembali</button>
+    </div>
+
+  </div>
+
+</ion-content>

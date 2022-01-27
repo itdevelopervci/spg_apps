@@ -1,0 +1,199 @@
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div padding class="headers sticky">
+
+    <ion-navbar>
+      <img src="assets/imgs/icon.png" alt="logo" class="logo_vci">
+      <ion-buttons end>
+        <button ion-button icon-only (click)="presentActionSheet()">
+          <ion-icon md="log-out-outline" size="large"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+
+    <ion-grid class="grid_name">
+      <ion-row>
+        <ion-col>
+          <p class="full_name">{{full_name}}</p>
+          <p class="jabatan">{{jabatan}}</p>
+        </ion-col>
+        <ion-col col-3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <div class="sticky">
+
+    <div>
+
+      <ion-slides [centeredSlides]="false" [slidesPerView]="1.5" [spaceBetween]="-18" [effect]="cube"
+        (ionSlideDidChange)="slideChanged()">
+
+        <ion-slide>
+          <ion-card class="cards salesman">
+            <ion-card-content>
+              <div>
+                <button ion-fab color="dark" (click)="openSalesmanPage()">
+                  <ion-icon md="bicycle-outline" color="light"></ion-icon>
+                </button>
+              </div>
+            </ion-card-content>
+            <ion-card-header>
+              <ion-item (click)="openSalesmanPage()" style="border-radius: 10px;">
+                Salesman
+                <ion-icon name="arrow-forward-outline" item-end></ion-icon>
+              </ion-item>
+            </ion-card-header>
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card class="cards markt">
+            <ion-card-content>
+              <div>
+                <button ion-fab color="dark" (click)="openSelloutPage()">
+                  <ion-icon md="receipt-outline" color="light"></ion-icon>
+                </button>
+              </div>
+            </ion-card-content>
+            <ion-card-header>
+              <ion-item (click)="openSelloutPage()" style="border-radius: 10px;">
+                Sellout
+                <ion-icon name="arrow-forward-outline" item-end></ion-icon>
+              </ion-item>
+            </ion-card-header>
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card class="cards dist">
+            <ion-card-content>
+              <div>
+                <button ion-fab color="violet" (click)="openDistributionPage()">
+                  <ion-icon md="swap-horizontal-outline"></ion-icon>
+                </button>
+              </div>
+            </ion-card-content>
+            <ion-card-header>
+              <ion-item style="border-radius: 10px;" (click)="openDistributionPage()">
+                Distribution
+                <ion-icon name="arrow-forward-outline" item-end></ion-icon>
+              </ion-item>
+            </ion-card-header>
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card class="cards markt">
+            <ion-card-content>
+              <div>
+                <button ion-fab color="goldenrod">
+                  <ion-icon md="podium-outline"></ion-icon>
+                </button>
+              </div>
+            </ion-card-content>
+            <ion-card-header>
+              <ion-item style="border-radius: 10px;">
+                Marketing
+                <ion-icon name="arrow-forward-outline" item-end></ion-icon>
+              </ion-item>
+            </ion-card-header>
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide></ion-slide>
+
+      </ion-slides>
+    </div>
+
+    <div>
+
+      <div *ngIf="currentIndex == 0" class="caption" padding>
+        <h3 style="font-weight: 700;" class="text-focus-in">Salesman <b style="color: grey; font-size: 9px;">v{{versi}}</b>
+        </h3>
+      </div>
+
+      <div *ngIf="currentIndex == 1" class="caption" padding>
+        <h3 style="font-weight: 700;" class="text-focus-in">Sales Promotion <b style="color: grey; font-size: 9px;">v{{versi}}</b>
+        </h3>
+      </div>
+
+      <div *ngIf="currentIndex == 2" class="caption" padding>
+        <h3 style="font-weight: 700;" class="text-focus-in">Distribusi <b style="color: grey; font-size: 9px;">v{{versi}}</b>
+        </h3>
+      </div>
+
+      <div *ngIf="currentIndex == 3" class="caption" padding>
+        <h3 style="font-weight: 700;" class="text-focus-in">Marketing <b style="color: grey; font-size: 9px;">v{{versi}}</b>
+        </h3>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="datacheckin == 1">
+    <div class="text-focus-in" *ngIf="currentIndex == 0" padding>
+      <ion-segment [(ngModel)]="checkin">
+        <ion-segment-button style="text-transform: none; font-size: 18px; font-weight: 700;" value="listcheckin">
+          Kunjungan
+        </ion-segment-button>
+        <ion-segment-button style="text-transform: none; font-size: 18px; font-weight: 700;"
+          (click)="goToHistoryTransaction()" color="danger" value="listsalesorder">
+          Sales Order
+        </ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="checkin" *ngFor="let list of checkin_list">
+        <div *ngIf="list.waktu_in != ''"><br>
+          <p>{{list.waktu_in | date:'EEEE, dd MMMM yyyy'}}</p>
+        </div>
+        <ion-card class="card-checkin"
+          (click)="getDetailCheckIn(list.idcheckin, list.kd_outlet, list.nama_outlet, list.on_loc, list.lat, list.lng, list.keterangan, list.waktu_cin, list.waktu_cout, list.nilai, list.trm)">
+          <ion-list style="background: transparent !important;">
+            <button ion-item>
+              <p>{{list.idcheckin}}</p>
+              {{list.nama_outlet}}
+              <ion-icon md="checkmark-circle-outline" color="{{list.color_status}}" item-end></ion-icon>
+            </button>
+          </ion-list>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="datacheckin == 2">
+    <div class="text-focus-in" *ngIf="currentIndex == 1" padding>
+      <ion-segment [(ngModel)]="checkin">
+        <ion-segment-button style="text-transform: none; font-size: 18px; font-weight: 700;" value="listcheckin">
+          Kunjungan
+        </ion-segment-button>
+        <ion-segment-button style="text-transform: none; font-size: 18px; font-weight: 700;"
+          (click)="goToHistoryTransaction()" color="danger" value="listsalesorder">
+          Sellout
+        </ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="checkin" *ngFor="let list of checkin_list_spg">
+        <div *ngIf="list.waktu_in != ''"><br>
+          <p>{{list.waktu_in | date:'EEEE, dd MMMM yyyy'}}</p>
+        </div>
+        <ion-card class="card-checkin"
+          (click)="getDetailCheckIn(list.idcheckin, list.kd_outlet, list.nama_outlet, list.on_loc, list.lat, list.lng, list.keterangan, list.waktu_cin, list.waktu_cout, list.nilai, list.trm)">
+          <ion-list style="background: transparent !important;">
+            <button ion-item>
+              <p>{{list.idcheckin}}</p>
+              {{list.nama_outlet}}
+              <ion-icon md="checkmark-circle-outline" color="{{list.color_status}}" item-end></ion-icon>
+            </button>
+          </ion-list>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

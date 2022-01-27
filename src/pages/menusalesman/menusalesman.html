@@ -1,0 +1,100 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Informasi Salesman</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="manager-sheet-content">
+
+  <div padding>
+
+    <div style="z-index: 100;" style="display: none;">
+      <ion-card class="azz-neo">
+        <ion-card-header>
+          <p class="captions">
+            Target Sales
+          </p>
+          <p style="text-align: center;">Rp. <b style="font-size: 20px;"> {{ target_sales }},- </b>
+          </p>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row>
+            <ion-col>
+              <p class="captions">
+                Server Mobile
+              </p>
+              <p style="text-align: center;">Rp. <b style="font-size: 12px;"> {{ total_sales }},- </b>
+              </p>
+            </ion-col>
+            <ion-col>
+              <p class="captions">
+                Server Cabang/Depo
+              </p>
+              <p style="text-align: center;">Rp. <b style="font-size: 12px;"> {{ total_sales2 }},- </b>
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <ion-list>
+      <ion-item>
+        <p style="color: grey;">Kode Salesman</p>
+        <p style="font-size: 20px; padding-top: 10px;">{{kdsales}}</p>
+      </ion-item>
+      <ion-item>
+        <p style="color: grey;">Nama Cabang</p>
+        <p style="font-size: 20px; padding-top: 10px;">{{namacabang}}</p>
+      </ion-item>
+      <ion-item>
+        <p style="color: grey;">Nama Depo</p>
+        <p style="font-size: 20px; padding-top: 10px;">{{namadepo}}</p>
+      </ion-item>
+      <ion-item>
+        <p style="color: grey;">Total Kunjungan</p>
+        <p style="font-size: 20px; padding-top: 10px;">{{total_visit}}</p>
+      </ion-item>
+      <ion-item>
+        <p style="color: grey;">Total Orderan</p>
+        <p style="font-size: 20px; padding-top: 10px;">{{total_order}}</p>
+      </ion-item>
+      <ion-item>
+        <p style="color: grey;">Target Sales</p>
+        <p style="font-size: 20px; padding-top: 10px;">Rp. {{target_sales}}
+          <ion-icon md="refresh" type style="color: grey;" (click)="getTargetSales()"></ion-icon>
+        </p>
+      </ion-item>
+      <ion-item>
+        <p style="color: grey;">Pencapaian Sales</p>
+        <p style="font-size: 20px; padding-top: 10px;">Rp. {{total_sales2}}
+          <ion-icon md="refresh" type style="color: grey;" (click)="getTotalSalesThisMonth2()"></ion-icon>
+        </p>
+      </ion-item>
+      <ion-item>
+        <p style="color: grey;">Sisa Target Sales</p>
+        <p style="font-size: 20px; padding-top: 10px;">Rp. {{sisa_target | number}}
+          <!-- <ion-icon md="refresh" type style="color: grey;" (click)="getTotalSalesThisMonth2()"></ion-icon> -->
+        </p>
+      </ion-item>
+    </ion-list>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+  </div>
+
+</ion-content>

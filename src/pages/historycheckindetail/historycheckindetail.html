@@ -1,0 +1,82 @@
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>historycheckindetail</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+<ion-content>
+
+  <ion-navbar>
+    <ion-title>Detail Kunjungan</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="getDismiss(false)">
+        <ion-icon md="close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <div pending id="data_found">
+    <ion-item>
+      <ion-label stacked>ID Check in</ion-label>
+      <ion-input type="text" value="{{idcheckin}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Kode Outlet</ion-label>
+      <ion-input type="text" value="{{kdoutlet}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Nama Outlet</ion-label>
+      <ion-input type="text" value="{{nama_outlet}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Tanggal Kunjungan</ion-label>
+      <ion-input type="text" value="{{waktuin | date:'dd MMMM yyyy'}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Jam Kunjungan Masuk Toko</ion-label>
+      <ion-input type="text" value="{{waktuin | date:'HH:mm:ss'}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Jam Kunjungan Keluar Toko</ion-label>
+      <ion-input type="text" value="{{waktuout | date:'HH:mm:ss'}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Status Kunjungan</ion-label>
+      <ion-input type="text" value="{{statuscekin}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>True Location</ion-label>
+      <ion-input type="text" value="{{truelocation}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Latitude</ion-label>
+      <ion-input type="text" value="{{latitude}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Longitude</ion-label>
+      <ion-input type="text" value="{{longitude}}" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Posisi saat check in</ion-label>
+    </ion-item>
+  </div>
+
+  <div #maps id="maps" style="height: 40%;"></div>
+
+  <br>
+
+  <div padding>
+    <button ion-button class="azz-button" block (click)="getDismiss(false)">Kembali</button>
+    <br>
+    <button ion-button block clear class="azz-button" color="light" (click)="gotoPageOrder()">Buat Pesanan</button>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+</ion-content>

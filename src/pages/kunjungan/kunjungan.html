@@ -1,0 +1,58 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Kunjungan</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="getPosition()">
+        <ion-icon md="locate-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div #map id="map" style="height: 100%; width: 100%;"></div>
+
+</ion-content>
+
+
+<ion-footer>
+
+  <div padding>
+    <ion-item>
+      <ion-label stacked>Outlet</ion-label>
+      <ion-input type="text" style="color: black;" value="{{ nama_outlet }}" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Posisi</ion-label>
+      <ion-select [(ngModel)]="posisi" (ionChange)="selectPosition($event)" interface="popover">
+        <ion-option style="color: grey;" value="YES" selected>DI OUTLET</ion-option>
+        <ion-option style="color: grey;" value="NO">BUKAN DI OUTLET</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <div padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-3>
+          <button ion-button color="goldenrod" block class="azz-button" icon-only (click)="addOutlet()">
+            <ion-icon md="add-outline"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block icon-end class="azz-button" [disabled]="!lat" (click)="getCheckIn()" id="checkinbtn">
+          <!-- <button ion-button block icon-end class="azz-button" (click)="getCheckIn()" id="checkinbtn"> -->
+            Check In
+            <ion-icon md="arrow-forward-outline"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-footer>

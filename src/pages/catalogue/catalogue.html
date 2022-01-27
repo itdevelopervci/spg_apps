@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Katalog</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row >
+      <ion-col *ngFor="let list of list_catalogue" col-6 >
+        <div class="mycards" >
+          <div class="picture" [ngStyle]="{'background-image': 'url('+list.image_large+')'}"
+          (click)="openCatalogue(list.image_large, list.NamaBarang)"></div>
+          <div class="content">
+            <h5 class="name_product">{{list.NamaBarang}}</h5>
+            <div class="contents">
+              <p class="price_line_trough">Rp. 230.000</p>
+              <h3 class="price">Rp. 123.000</h3>
+              <p class="outlet_name">1 LSN (12)</p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,46 @@
+page-menusalesman {
+
+  // ion-content,
+  // ion-header {
+  //   height: 100%;
+  //   margin-top: 15%;
+  //   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.50);
+  //   transition: opacity 0.2s ease, box-shadow 0.2s ease;
+  //   border-radius: 20px;
+  // }
+
+  // destroy Scroll Bar
+  .scroll-content {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none; // IE 10+
+    scrollbar-width: none; // Firefox
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none; // Safari and Chrome
+    }
+  }
+
+  .captions {
+    margin-top: 10px;
+    margin-bottom: -5px;
+    font-size: 11px;
+    color: grey;
+    text-align: center;
+  }
+
+
+  .item-inner,
+  ion-item,
+  ion-list {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  ion-row,
+  ion-col {
+    background: transparent;
+  }
+
+}

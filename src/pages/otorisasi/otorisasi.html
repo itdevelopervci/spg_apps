@@ -1,0 +1,134 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Otorisasi</ion-title>
+  </ion-navbar>
+
+  <!-- <ion-item no-lines>
+    <ion-checkbox (click)="getCheckAllList()" [(ngModel)]="checkAllList">
+    </ion-checkbox>
+    <ion-label>Pilih Semua</ion-label>
+    <button ion-button clear item-end color="danger">Reject</button>
+    <button ion-button clear item-end (click)="approvalBtn()">Approve</button>
+  </ion-item> -->
+
+  <ion-row>
+    <ion-col no-padding>
+      <ion-item no-lines>
+        <ion-checkbox (click)="getCheckAllList()" [(ngModel)]="checkAllList">
+        </ion-checkbox>
+        <ion-label>Pilih Semua</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item no-lines>
+        <button ion-button clear item-end color="danger">Reject</button>
+        <button ion-button clear item-end (click)="approvalBtn()">Approve</button>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <!-- <ion-item>
+    <ion-label>Cabang</ion-label>
+    <ion-select [(ngModel)]="group" interface="popover">
+      <ion-option value="all">All</ion-option>
+      <ion-option value="cbg">Cabang</ion-option>
+      <ion-option value="reg">Regional</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item no-lines>
+    <ion-label>TIpe Otorisasi</ion-label>
+    <ion-select [(ngModel)]="type" interface="popover">
+      <ion-option value="F">Faktur</ion-option>
+      <ion-option value="R">Retur</ion-option>
+    </ion-select>
+  </ion-item> -->
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list *ngFor="let list of otorisasi_list">
+
+    <ion-list-header *ngIf=" list.initial != '' " no-lines>
+      <ion-label>{{list.initial}}</ion-label>
+      <!-- <ion-checkbox item-right (ionChange)="addCheckbox3(list.kdcabang)" [(ngModel)]="list.checked"></ion-checkbox> -->
+    </ion-list-header>
+    <ion-item (press)="pressEvent($event, list.kdoutlet, list.kdcabang, list.nama)">
+      <ion-checkbox (ionChange)="addCheckbox2()" [(ngModel)]="list.checked"></ion-checkbox>
+      <ion-label>
+        <p style="font-size: 11px;">{{list.notransaksi}}</p>
+        <h3>{{list.nama}}</h3>
+        <p style="color: darkgrey;">{{list.nilaipiutang}} | {{list.totalpiutang}}</p>
+        <p style="color: red; font-size: 11px;">{{list.nm_tipeotorisasi}}</p>
+      </ion-label>
+      <button ion-button clear item-end icon-only
+        (click)="detailOtorisasiPane(list.namacabang,list.namadepo,list.notransaksi,list.nama,list.tgltrans,list.kdoutlet,list.kdsales,list.namasls,list.nilaipiutang,list.totalpiutang,list.limitk,list.nm_tipeotorisasi)">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+    </ion-item>
+
+  </ion-list>
+
+
+  <div class="otorisasi-detail-pane" style="display: none;">
+    <h4>Detail Transaksi #{{notransaksi}}</h4>
+    <div overflow-y>
+      <ion-list no-padding>
+        <ion-item>
+          <p>Tanggal Transaksi</p>
+          <h2>{{tgltrans | date:'dd MMMM yyyy'}}</h2>
+        </ion-item>
+        <ion-item>
+          <p>Status</p>
+          <h2>{{nm_tipeotorisasi}}</h2>
+        </ion-item>
+        <ion-item>
+          <p>Cabang</p>
+          <h2>{{namacabang}} ⁃ {{namadepo}}</h2>
+        </ion-item>
+        <ion-item>
+          <p>Outlet</p>
+          <h2>{{kdoutlet}} ⁃ {{namaoutlet}}</h2>
+        </ion-item>
+        <ion-item>
+          <p>Salesman</p>
+          <h2>{{kdsales}} ⁃ {{namasls}}</h2>
+        </ion-item>
+        <ion-item>
+          <p>Nilai Pengajuan</p>
+          <h2>{{nilaipiutang}}</h2>
+        </ion-item>
+        <ion-item>
+          <p>Total Piutang</p>
+          <h2>{{totalpiutang}}</h2>
+        </ion-item>
+        <!-- <ion-item>
+          <p>Limit Kredit</p>
+          <h2>{{limitk}}</h2>
+        </ion-item> -->
+      </ion-list>
+      <div style="margin: auto;">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <button ion-button block color="danger">Reject</button>
+            </ion-col>
+            <ion-col>
+              <button ion-button block>Approve</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+
+</ion-content>

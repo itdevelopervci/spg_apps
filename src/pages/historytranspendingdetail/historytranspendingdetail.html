@@ -1,0 +1,83 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Transaksi Tertunda</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="getDismiss()">
+        <ion-icon md="close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div padding class="sticky">
+    <ion-row>
+      <ion-col col-4>No SO</ion-col>
+      <ion-col>: {{noso}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>Outlet</ion-col>
+      <ion-col>: {{outlet}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>Tanggal</ion-col>
+      <ion-col>: {{tgl_so}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>Netto</ion-col>
+      <ion-col>: Rp. {{netto2 | number}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>Note</ion-col>
+      <ion-col>: {{keterangan}}</ion-col>
+    </ion-row>
+  </div>
+
+  <div padding class="table-responsive fitscreen">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" style="text-align: left;">No</th>
+          <th scope="col" style="text-align: left;">PCode</th>
+          <th scope="col" style="text-align: left;">Produk</th>
+          <th scope="col" style="text-align: left;">Qty</th>
+          <th scope="col" style="text-align: left;">Jenis</th>
+          <th scope="col" style="text-align: left;">Jumlah</th>
+          <th scope="col" style="text-align: left;">Netto</th>
+          <th scope="col" style="text-align: left;" nowrap>Tanggal Input</th>
+          <th scope="col" style="text-align: left;">Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let so of trans_so_det_list">
+          <th nowrap scope="row">{{so.number}}</th>
+          <td nowrap>{{so.pcode}}</td>
+          <td nowrap>{{so.namabarang}}</td>
+          <td nowrap>{{so.qty}}</td>
+          <td nowrap>{{so.jenis}}</td>
+          <td nowrap>Rp. {{so.jumlah | number}}</td>
+          <td nowrap>Rp. {{netto_trans_so | number}}</td>
+          <td nowrap>{{so.adddate | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+          <td nowrap>{{so.keterangan}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- <div>
+    <button ion-button class="azz-button" color="primary" block (click)="sendTransaction()">Kirim Transaksi</button>
+  </div> -->
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <button ion-button class="azz-button" color="primary" block (click)="sendTransaction()">Kirim Transaksi</button>
+    <br>
+    <button ion-button class="azz-button" color="danger" block (click)="deleteTableTransSO()">Batalkan Transaksi</button>
+  </ion-toolbar>
+</ion-footer>

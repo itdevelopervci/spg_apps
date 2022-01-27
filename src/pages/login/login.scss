@@ -1,0 +1,139 @@
+page-login {
+
+  .azz-input {
+    background-color: transparent !important;
+  }
+
+  .logo-vci {
+    height: 10%;
+    width: 30%;
+    display: block;
+    margin: auto;
+  }
+
+  .no-scroll .scroll-content {
+    --overflow: hidden;
+  }
+
+  // destroy Scroll Bar 
+  .scroll-content {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none; // IE 10+
+    scrollbar-width: none; // Firefox
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none; // Safari and Chrome
+    }
+  }
+
+  ion-content {
+    // --overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .animate-bg {
+    background: linear-gradient(154deg, #ffffff, #ffffff67);
+    background-size: 400% 400%;
+    height: 100%;
+
+    -webkit-animation: AnimationName 5s ease infinite;
+    -moz-animation: AnimationName 5s ease infinite;
+    animation: AnimationName 5s ease infinite;
+  }
+
+  .item-inner,
+  ion-item {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  @-webkit-keyframes AnimationName {
+    0% {
+      background-position: 0% 24%
+    }
+
+    50% {
+      background-position: 100% 77%
+    }
+
+    100% {
+      background-position: 0% 24%
+    }
+  }
+
+  @-moz-keyframes AnimationName {
+    0% {
+      background-position: 0% 24%
+    }
+
+    50% {
+      background-position: 100% 77%
+    }
+
+    100% {
+      background-position: 0% 24%
+    }
+  }
+
+  @keyframes AnimationName {
+    0% {
+      background-position: 0% 24%
+    }
+
+    50% {
+      background-position: 100% 77%
+    }
+
+    100% {
+      background-position: 0% 24%
+    }
+  }
+
+  .tittleee {
+    -webkit-animation: tittleee 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tittleee 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  }
+
+  @-webkit-keyframes tittleee {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-transform: translateZ(-700px);
+      transform: translateZ(-700px);
+      opacity: 0;
+    }
+
+    40% {
+      opacity: 0.6;
+    }
+
+    100% {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes tittleee {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-transform: translateZ(-700px);
+      transform: translateZ(-700px);
+      opacity: 0;
+    }
+
+    40% {
+      opacity: 0.6;
+    }
+
+    100% {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+
+
+
+}

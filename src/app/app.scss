@@ -1,0 +1,324 @@
+// Navbar transparent
+
+.toolbar-background {
+  background-color: transparent !important;
+}
+
+body {
+  font-family: 'Lato';
+  src: url('../assets/fonts/Lato-Regular.ttf');
+}
+
+// Dissable underline ion input
+// .item-inner,
+// ion-item {
+//   border-bottom-color: transparent !important;
+//   box-shadow: none !important;
+// }
+
+// Hide Scroll Bar
+// .scroll-content {
+//   overflow-x: scroll;
+//   -webkit-overflow-scrolling: touch;
+//   -ms-overflow-style: none; // IE 10+
+//   scrollbar-width: none; // Firefox
+//   scroll-behavior: smooth;
+
+//   &::-webkit-scrollbar {
+//     display: none; // Safari and Chrome
+//   }
+// }
+
+.azz-neo {
+  // border-radius: 10px;
+  // background-color: #DEEAF6;
+  // box-shadow: -10px -10px 15px #f3f9ff,
+  //   10px 10px 8px #BEDBD8;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  box-shadow: 13px 13px 26px #d9d9d9,
+    -13px -13px 26px #ffffff;
+}
+
+.azz-button {
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2);
+  text-transform: none;
+  margin: auto;
+  width: 90%;
+  height: 33pt;
+}
+
+.azz-button-noshadow {
+  border-radius: 10px;
+  // box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.3);
+  text-transform: none;
+  margin: auto;
+  width: 90%;
+  height: 33pt;
+}
+
+.azz_card {
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+ion-header {
+  &.header-md:after {
+    background: none;
+  }
+}
+
+.home-cupertino-pane {
+  margin: 20px;
+  font-family: 'Lato';
+  // font-size: 20px;
+
+  ion-row,
+  ion-grid,
+  ion-col {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+  }
+
+  p {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+.salesman-cupertino-pane {
+  margin: 20px;
+  font-family: 'Lato';
+
+  ion-row,
+  ion-col {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+  }
+
+  p {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+.sync-cupertino-pane {
+  margin: 20px;
+  font-family: 'Lato';
+
+  ion-row,
+  ion-col {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+  }
+
+  p {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+.dist-cupertino-pane {
+  margin: 20px;
+  font-family: 'Lato';
+  z-index: 0;
+
+  ion-select{
+    z-index: 100;
+  }
+
+  ion-row,
+  ion-grid,
+  ion-col {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+  }
+
+  p {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  b {
+    text-transform: none;
+  }
+
+  button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .azz-button-noshadow {
+    border-radius: 10px;
+    // box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.3);
+    text-transform: none;
+    margin: auto;
+    width: 90%;
+    height: 33pt;
+  }
+
+  }
+
+  .alert-cupertino-pane {
+    margin: 20px;
+    font-family: 'Lato';
+
+    .azz-button {
+      border-radius: 10px;
+      text-transform: none;
+      margin: auto;
+      width: 90%;
+      height: 33pt;
+    }
+
+  }
+
+  .approvalvisit-detail-pane {
+    margin: 20px;
+    font-family: 'Lato';
+
+    p {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+  }
+
+.otorisasi-detail-pane {
+  margin: 20px;
+  font-family: 'Lato';
+}
+
+
+
+
+
+
+
+.slide-in-bck-bottom {
+  -webkit-animation: slide-in-bck-bottom 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: slide-in-bck-bottom 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes slide-in-bck-bottom {
+  0% {
+    -webkit-transform: translateZ(700px) translateY(300px);
+            transform: translateZ(700px) translateY(300px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bck-bottom {
+  0% {
+    -webkit-transform: translateZ(700px) translateY(300px);
+            transform: translateZ(700px) translateY(300px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+// .action-sheet-md {
+//   text-align: center;
+// }
+
+.action-sheet-md .action-sheet-wrapper {
+  margin: constant(safe-area-inset-top) auto constant(safe-area-inset-bottom);
+  margin: env(safe-area-inset-top) auto env(safe-area-inset-bottom);
+}
+
+.action-sheet-md .action-sheet-container {
+  padding: 0 10px;
+}
+
+.action-sheet-md .action-sheet-group {
+  border-radius: 13px;
+  margin-bottom: 5px;
+  background: #f9f9f9;
+}
+
+// .action-sheet-md .action-sheet-group:first-child {
+//   margin-top: 10px;
+// }
+
+.action-sheet-md .action-sheet-group:last-child {
+  margin-bottom: 10px;
+}
+
+.action-sheet-md .action-sheet-title {
+  padding: 1.5rem;
+  // text-align: center;
+  border-radius: 0;
+  border-bottom: 0.55px solid #d6d6da;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #8f8f8f;
+}
+
+.action-sheet-md .action-sheet-button {
+  margin: 0;
+  padding: 18px;
+  min-height: 5.6rem;
+  border-bottom: 0.55px solid #d6d6da;
+  font-size: 2rem;
+  color: #007aff;
+  background: transparent;
+}
+
+// .action-sheet-md .action-sheet-button:last-child {
+//   border-bottom-color: transparent;
+// }
+
+// .action-sheet-md .action-sheet-button.activated {
+//   margin-top: -0.55px;
+//   border-top: 0.55px solid #ebebeb;
+//   border-bottom-color: #ebebeb;
+//   background: #ebebeb;
+// }
+
+// .action-sheet-md .action-sheet-selected {
+//   font-weight: bold;
+//   background: #fff;
+// }
+
+.action-sheet-md .action-sheet-cancel {
+  font-weight: 600;
+  color: #f53d3d;
+  border-bottom: 0.55px solid #ffffff;
+  margin-bottom: -8px;
+}
+

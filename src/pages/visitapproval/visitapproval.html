@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Visit Approval</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div>
+    <div *ngFor="let list of checkin_list">
+      <div *ngIf="list.waktu_in != ''"><br>
+        <p>{{list.waktu_in | date:'EEEE, dd MMMM yyyy'}}</p>
+      </div>
+      <ion-card class="card-checkin" (click)="showDetails(list.idcheckin,list.kd_salesman,list.namasales,list.kd_outlet,list.nama_outlet,list.waktu_in,list.waktu_cin,list.waktu_cout,list.nama_tipe_cekin,list.truelocation,list.lat,list.lng)">
+        <ion-list style="background: transparent !important;">
+          <button ion-item >
+            <p>{{list.namasales}}</p>
+            {{list.nama_outlet}}
+            <ion-icon md="chevron-forward-circle-outline" color="primary" item-end></ion-icon>
+          </button>
+        </ion-list>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>

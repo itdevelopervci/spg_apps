@@ -1,0 +1,32 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Presensi</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="historyPresensi()">
+        <ion-icon md="calendar-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div>
+    <ion-slides autoplay="3000" loop="true" speed="1000">
+      <ion-slide *ngFor="let slide of slideData">
+        <img src="{{slide.image}}" class="img" />
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <ion-list *ngFor="let presensi_type of presensi_type" (click)="openPresensiForm(presensi_type.type_id)" tappable>
+    <ion-item tappable>
+      <ion-icon md="add-outline" style="color: green" item-start></ion-icon>
+      {{ presensi_type.type_name }}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

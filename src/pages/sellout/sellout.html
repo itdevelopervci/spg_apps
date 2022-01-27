@@ -1,0 +1,107 @@
+<!--
+  Generated template for the SelloutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sellout</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div style="margin-top: -20px; font-size: 11px; color: grey;">
+    <p>{{ todayDate | date:'EEEE, dd MMMM yyyy' }}</p>
+  </div>
+  <div>
+    <p>Selamat {{ daylight }}</p>
+    <p class="full_name">{{ full_name }}</p>
+    <!-- <p>Total sellout bulan {{ todayDate | date:'MMMM yyyy' }} </p>
+    <p><b style="font-size: 25px; color: goldenrod;"> {{ total_sales }} </b>
+      <ion-icon md="refresh-outline" ios="refresh-outline" type style="color: grey;" (click)="getTotalSalesThisMonth()"></ion-icon>
+    </p> -->
+  </div>
+
+  <div style="padding-top: 10%;">
+    <button ion-button block id="sync" class="blink-2 azz-button" (click)="getSync()">
+      Sinkronisasi
+    </button>
+    <button ion-button block outline style="display: none;" class="azz-button" id="sync_done" (click)="getSync()">
+      Tersinkron pada {{isSync | date:'dd MMMM yyyy'}}
+    </button><br>
+  </div>
+
+</ion-content>
+
+<ion-footer no-border>
+
+  <ion-slides>
+    <ion-slide>
+      <div class="menus slide-in-bck-bottom">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div class="center">
+                <button ion-fab color="violet" [disabled]="!enable" (click)="goToKunjungan()">
+                  <ion-icon md="location-outline"></ion-icon>
+                </button>
+                <p>Check In</p>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="center" id="normal">
+                <button ion-fab color="goldenrod" (click)="goToHistoryTransaction()">
+                  <ion-icon md="cart-outline"></ion-icon>
+                </button>
+                <p>Riwayat Sellout</p>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="center">
+                <button ion-fab color="danger" (click)="goToHistoryCheckIn()">
+                  <ion-icon md="map-outline"></ion-icon>
+                </button>
+                <p>Riwayat Check In</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div class="center">
+                <button ion-fab (click)="goToProductPage()">
+                  <ion-icon md="cube-outline"></ion-icon>
+                </button>
+                <p>Produk</p>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="center">
+                <button ion-fab color="orange" (click)="goToOutletPage()">
+                  <ion-icon md="home-outline"></ion-icon>
+                </button>
+                <p>Outlet</p>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="center">
+                <!-- <button ion-fab color="dark" (click)="goToCatalogue()"> -->
+                <button ion-fab color="dark" (click)="underDevelopment()">
+                  <ion-icon md="book-outline"></ion-icon>
+                </button>
+                <p>Katalog</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-footer>

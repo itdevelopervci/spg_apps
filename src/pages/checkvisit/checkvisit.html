@@ -1,0 +1,152 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Check Visit</ion-title>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="refreshData()">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </button>
+    </ion-buttons> -->
+
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="regional">
+      <ion-segment-button style="text-transform: none;" value="regbar" (click)="selectRegional1('jk1')" [disabled]="regbarDisabled" id="regbar">
+        Regional 1
+      </ion-segment-button>
+      <ion-segment-button style="text-transform: none;" value="regtim" (click)="selectRegional2('sby')" [disabled]="regtimDisabled" id="regtim">
+        Regional 2
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <div padding class="sticky" id="cab_regbar">
+    <ion-segment [(ngModel)]="cabang" mode="ios">
+      <ion-segment-button style="text-transform: none;" value="jk1" [disabled]="buttonDisabled1" (click)="showTrans1(31)">
+        Jakarta 1
+      </ion-segment-button>
+      <ion-segment-button style="text-transform: none;" value="jk2" [disabled]="buttonDisabled2" (click)="showTrans1(32)">
+        Jakarta 2
+      </ion-segment-button>
+      <ion-segment-button style="text-transform: none;" value="bdg" [disabled]="buttonDisabled3" (click)="showTrans1(33)">
+        Bandung
+      </ion-segment-button>
+    </ion-segment>
+
+    <br>
+
+    <ion-item>
+      <ion-label>Tanggal</ion-label>
+      <ion-datetime (ionBlur)="selectDate()" displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+  
+  </div>
+
+  <div padding class="sticky" id="cab_regtim" style="display: none;">
+    <ion-segment [(ngModel)]="cabang" mode="ios">
+      <ion-segment-button style="text-transform: none;" value="sby" [disabled]="buttonDisabled4" (click)="showTrans2(41)">
+        Surabaya
+      </ion-segment-button>
+      <ion-segment-button style="text-transform: none;" value="smg" [disabled]="buttonDisabled5" (click)="showTrans2(42)">
+        Semarang
+      </ion-segment-button>
+      <ion-segment-button style="text-transform: none;" value="dps" [disabled]="buttonDisabled6" (click)="showTrans2(43)">
+        Denpasar
+      </ion-segment-button>
+    </ion-segment>
+    <br>
+    <ion-item>
+      <ion-label>Tanggal</ion-label>
+      <ion-datetime (ionBlur)="selectDate2()" displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+  </div>
+
+
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher> -->
+
+  <!-- <div class="sticky">
+    <ion-segment [(ngModel)]="regional">
+      <ion-segment-button style="text-transform: none;" value="regbar" (click)="selectRegional1('jk1')" id="regbar">
+        Regional 1
+      </ion-segment-button>
+      <ion-segment-button style="text-transform: none;" value="regtim" (click)="selectRegional2('sby')" id="regtim">
+        Regional 2
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <br> -->
+
+  <div [ngSwitch]="regional">
+
+    <div *ngSwitchCase="'regbar'">
+
+      
+
+
+      <div id="data_not_empty">
+        <div *ngFor="let list of checkin_list">
+          <div *ngIf="list.waktu_in != ''"><br>
+            <p>{{list.waktu_in | date:'EEEE, dd MMMM yyyy'}}</p>
+          </div>
+          <ion-card class="card-checkin" (click)="showDetails(list.idcheckin,list.kd_salesman,list.namasales,list.kd_outlet,list.nama_outlet,list.waktu_in,list.waktu_cin,list.waktu_cout,list.nama_tipe_cekin,list.truelocation,list.lat,list.lng)">
+            <ion-list style="background: transparent !important;">
+              <button ion-item >
+                <p>{{list.namasales}}</p>
+                <p>{{list.namadepo}}</p>
+                {{list.nama_outlet}}
+                <ion-icon md="chevron-forward-circle-outline" color="primary" item-end></ion-icon>
+              </button>
+            </ion-list>
+          </ion-card>
+        </div>
+      </div>
+
+      <div id="data_empty" style="display: none;">
+        <h3 style="text-align: center; padding-top: 20%;">Tidak ada data</h3>
+      </div>
+
+    </div>
+
+    <div *ngSwitchCase="'regtim'">
+
+      
+
+      <div id="data_not_empty">
+        <div *ngFor="let list of checkin_list">
+          <div *ngIf="list.waktu_in != ''"><br>
+            <p>{{list.waktu_in | date:'EEEE, dd MMMM yyyy'}}</p>
+          </div>
+          <ion-card class="card-checkin" (click)="showDetails(list.idcheckin,list.kd_salesman,list.namasales,list.kd_outlet,list.nama_outlet,list.waktu_in,list.waktu_cin,list.waktu_cout,list.nama_tipe_cekin,list.truelocation,list.lat,list.lng)">
+            <ion-list style="background: transparent !important;">
+              <button ion-item >
+                <p>{{list.namasales}}</p>
+                <p>{{list.namadepo}}</p>
+                {{list.nama_outlet}}
+                <ion-icon md="chevron-forward-circle-outline" color="primary" item-end></ion-icon>
+              </button>
+            </ion-list>
+          </ion-card>
+        </div>
+      </div>
+
+      <div id="data_empty" style="display: none;">
+        <h3 style="text-align: center; padding-top: 20%;">Tidak ada data</h3>
+      </div>
+
+    </div>
+
+  </div>
+  
+
+</ion-content>

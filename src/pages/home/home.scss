@@ -1,0 +1,212 @@
+page-home {
+
+  .headers{
+    border: 1px solid;
+    border: none;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    background: white;
+    // margin-bottom: -10%;
+    margin-bottom: 10%;
+    z-index: 100;
+  }
+
+  .sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    margin-top: 0;
+    // background: transparent !important;
+    z-index: 100;
+  }
+
+  .footers{
+    margin-top: 10%;
+    border: 1px solid;
+    border: none;
+    box-shadow: 0px 0px 20px 0px rgba(39, 96, 220, 0.2);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    // background: white;
+    // margin-bottom: -10%;
+  }
+
+  .images {
+    height: 70%;
+    margin: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .logo_vci{
+    height: 70px;
+    margin: auto;
+    // display: block;
+    border-radius: 8px;
+  }
+
+  .grid_name{
+    margin-top: -2%;
+  }
+
+  .full_name{
+    font-weight: 700;
+    font-size: 22px;
+    color: rgb(87, 79, 47);
+  }
+
+  .jabatan{
+    margin-top: -6%;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(169, 159, 118);
+  }
+
+  .dept{
+    margin-top: -6%;
+    font-weight: 300 bold;
+    font-size: 12px;
+    color: rgb(111, 107, 90);
+  }
+
+  ion-slides{
+    // padding-top: 20%;
+    height: auto;
+    // background-color: transparent;
+    background: white;
+  }
+
+  ion-slide{
+    // background-color: transparent;
+    background: white;
+    ion-item {
+      border-bottom-color: transparent !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .cards{
+    max-width: 80%;
+    border-radius: 10px;
+    box-shadow: none;
+    background: rgb(240, 240, 240);
+  }
+
+  .salesman{
+    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+  }
+
+  .administrator {
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+  }
+
+  .dist{
+    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+  }
+
+  .markt{
+    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+  }
+
+  .caption{
+    background: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    // box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
+
+  }
+
+  h3{
+    margin-bottom: -1%;
+  }
+
+  
+
+  // p {
+  //   text-align: center;
+  //   margin-bottom: -10px;
+  // }
+
+  .name {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .ver-line {
+    border-left: 2px solid rgb(169, 175, 169);
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .logo-vci {
+    height: 10%;
+    width: 25%;
+    display: block;
+    margin: auto;
+  }
+
+  
+
+  .menus{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-left: 0;
+    margin-right: 0%;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.5);
+    button{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 15%;
+    }
+    p{
+      font-size: 12px;
+      margin-bottom: 15%;
+      text-align: center;
+    }
+  }
+
+  .text-focus-in {
+    -webkit-animation: text-focus-in 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation: text-focus-in 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  }
+
+  @-webkit-keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+  .card-checkin {
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.2s ease, box-shadow 0.2s ease;
+    background-image: linear-gradient(135deg, #fdfcfb 0%, #72f16e 100%);
+  }
+
+
+  
+
+
+
+}

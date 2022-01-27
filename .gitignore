@@ -1,0 +1,7 @@
+#file_to_ignore
+.sourcemaps/*
+node_modules/*
+platforms/*
+plugins/*
+www/*
+*.DS_Store

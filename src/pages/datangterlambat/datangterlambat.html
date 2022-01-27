@@ -1,0 +1,42 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Datang Terlambat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>Tanggal</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="startDate"
+          (ionChange)="pilihtanggal($event)"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Jam Datang</ion-label>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="waktu_datang.timeStarts"
+          (click)="show_keterangan()"></ion-datetime>
+      </ion-item>
+
+      <ion-item id="keterangan" style="display: none;">
+        <ion-label stacked>Keterangan</ion-label>
+        <ion-textarea #myInput id="myInput" rows="2" maxLength="1000" (keyup)="resize()" [(ngModel)]="keterangan"
+          placeholder="Isi disini"></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+
+  <div id="button_send" style="display: none;">
+    <button ion-button round color="goldenrod" (click)="send_data()">Kirim Data</button>
+  </div>
+
+</ion-content>

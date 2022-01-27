@@ -1,0 +1,128 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <!-- <ion-title>Transaksi</ion-title> -->
+    <!-- <ion-title> -->
+    <p>{{nama_outlet}}</p>
+    <p style="font-size: 10px; color: gray;margin-top: -4%;" *ngIf="notice_trans == 't'">{{noso}}</p>
+    <!-- </ion-title> -->
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="getCart()">
+        <ion-icon md="cart-outline"></ion-icon>
+      </button>
+    </ion-buttons> -->
+    <ion-buttons end>
+      <button ion-button icon-only (click)="cancelTrans()">
+        <ion-icon md="close-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="height: 93%;" padding>
+
+
+  <div>
+    <ion-list>
+      <ion-item-sliding *ngFor="let list of trans_so_det_list">
+        <ion-item>
+          <h3>{{list.namabarang}}</h3>
+          <p style="font-size: 11px; color: gray">Rp.{{list.netto | number}} | {{list.qty}} {{list.jenis}} | {{list.namapromo}}</p>
+          <ion-icon md="arrow-back-outline" size="small" item-end color="danger" class="slide-left">
+          </ion-icon>
+        </ion-item>
+        <ion-item-options side="right">
+          <!-- <button ion-button style="text-transform: none; font-size: 10pt;" color="secondary"
+            (click)="edit_data(list.noso,list.pcode)" icon-start>
+            <ion-icon md="trash-outline"></ion-icon> Edit Qty
+          </button> -->
+          <button ion-button style="text-transform: none; font-size: 10pt;" color="danger"
+            (click)="confirmDeleteItem(list.noso,list.pcode)" icon-start>
+            <ion-icon md="trash-outline"></ion-icon> Hapus
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <div *ngIf="notice_trans == 'y'">
+      <img src="assets/imgs/empty.png" style="height: 100;width: 200;margin: auto;display: block;">
+      <p style="text-align: center;">
+        Tidak ada transaksi, silahkan tambahkan produk dengan menekan ikon +
+      </p>
+    </div>
+
+  </div>
+
+  <!-- <div class="alert-cupertino-pane">
+    <div class="content" overflow-y style="text-align: left;">
+    <div *ngIf="kunjunganAlert == 1">
+      <h5>Kunjungan pada outlet <b style="text-transform: none;">{{nama_outlet}} berhasil.</b></h5>
+    </div>
+    <div *ngIf="transAlert == 1">
+      <h5>Proses PO pada outlet <b style="text-transform: none;">{{nama_outlet}} berhasil.</b></h5>
+    </div>
+    <br>
+    <button *ngIf="kunjunganAlert == 1" ion-button block class="azz-button" (click)="closeMenuPane()">Kembali</button>
+    <br>
+    </div>
+  </div> -->
+
+</ion-content>
+
+<ion-footer style="background-color: white">
+
+  <div>
+    <ion-row *ngIf="notice_trans == 't'">
+      <ion-col col-5>
+        <ion-item no-lines>
+          <ion-label stacked>Tanggal (Sellout)</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="pick_month_expr">
+          </ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item no-lines>
+          <ion-label stacked>Pesan</ion-label>
+          <ion-input (click)="createNote()" type="text" placeholder="Ketik pesan disini" maxlength="30" [(ngModel)]="note" readonly></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top: -5%;">
+      <ion-col col-5 *ngIf="notice_trans == 't'">
+        <ion-item no-lines>
+          <ion-label stacked>Netto Produk ({{jumlah_trans_so}})</ion-label>
+          <ion-input value="Rp. {{netto_trans_so | number}}" readonly style="color: black;">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item no-lines>
+          <ion-label stacked>Status Check In</ion-label>
+          <ion-select [(ngModel)]="tipecheckinmodel" (ionChange)="selectTypeCheckIn($event)">
+            <ion-option *ngFor="let tipe of tipecheckin" style="color: black;" value="{{tipe.kd_tipe}}">
+              {{tipe.nm_tipe}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div padding>
+    <ion-row>
+      <ion-col col-3>
+        <button ion-button color="goldenrod" block class="azz-button" icon-only (click)="addProduct()">
+          <ion-icon md="add-outline"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block icon-end class="azz-button" (click)="getCheckoutSendTransaction()">
+          Kirim
+          <ion-icon md="paper-plane-sharp"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-footer>

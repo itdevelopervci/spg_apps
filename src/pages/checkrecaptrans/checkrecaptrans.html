@@ -1,0 +1,118 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Recap Transaction</ion-title>
+    <!-- by azizi on PC -->
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+
+    <ion-segment [(ngModel)]="regional">
+      <ion-segment-button style="text-transform: none;" value="regbar" [disabled]="regbarDisabled"
+        (click)="selectRegional1('jk1')" id="regbar">
+        Regional 1 
+      </ion-segment-button>
+      <ion-segment-button style="text-transform: none;" value="regtim" [disabled]="regtimDisabled"
+        (click)="selectRegional2('sby')" id="regtim">
+        Regional 2
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div [ngSwitch]="regional" padding>
+
+    <div *ngSwitchCase="'regbar'">
+
+      <ion-segment [(ngModel)]="cabang" mode="ios">
+        <ion-segment-button style="text-transform: none;" value="jk1" [disabled]="buttonDisabled1"
+          (click)="showTrans1(31)">
+          Jakarta 1
+        </ion-segment-button>
+        <ion-segment-button style="text-transform: none;" value="jk2" [disabled]="buttonDisabled2"
+          (click)="showTrans1(32)">
+          Jakarta 2
+        </ion-segment-button>
+        <ion-segment-button style="text-transform: none;" value="bdg" [disabled]="buttonDisabled3"
+          (click)="showTrans1(33)">
+          Bandung
+        </ion-segment-button>
+      </ion-segment>
+
+      <br>
+
+      <ion-item>
+        <ion-label>
+          <!-- <h4>Sales Order</h4> -->
+          Sales Order
+        </ion-label>
+        <!-- <ion-datetime (ionBlur)="selectDate()" displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="myDate"></ion-datetime> -->
+        <ion-datetime displayFormat="MMMM/YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+
+      <div class="table-responsive fitscreen" id="table_po">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col" style="text-align: left;">Nama Salesman</th>
+              <th scope="col" style="text-align: left;">Jumlah
+                PO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let so of trans_recap_monthly_list">
+              <th nowrap scope="row" style="text-align: left;">{{so.namasalesman}}</th>
+              <td nowrap style="text-align: right;">{{so.jumlahso}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div *ngSwitchCase="'regtim'">
+
+      <ion-segment [(ngModel)]="cabang" mode="ios">
+        <ion-segment-button style="text-transform: none;" value="sby" [disabled]="buttonDisabled4"
+          (click)="showTrans2(41)">
+          Surabaya
+        </ion-segment-button>
+        <ion-segment-button style="text-transform: none;" value="smg" [disabled]="buttonDisabled5"
+          (click)="showTrans2(42)">
+          Semarang
+        </ion-segment-button>
+        <ion-segment-button style="text-transform: none;" value="dps" [disabled]="buttonDisabled6"
+          (click)="showTrans2(43)">
+          Denpasar
+        </ion-segment-button>
+      </ion-segment>
+
+      <br>
+
+      <div class="table-responsive fitscreen" id="table_po">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col" style="text-align: left;">Nama Salesman</th>
+              <th scope="col" style="text-align: left;">Jumlah
+                PO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let so of trans_recap_monthly_list">
+              <th nowrap scope="row" style="text-align: left;">{{so.namasalesman}}</th>
+              <td nowrap style="text-align: right;">{{so.jumlahso}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>

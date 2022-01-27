@@ -1,0 +1,85 @@
+<ion-header no-border>
+  <ion-navbar>
+    <ion-title>{{NoSO}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="getCheckOrder()">
+        <ion-icon md="information-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="getClose()">
+        <ion-icon md="close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div padding class="sticky">
+    <ion-row>
+      <ion-col col-4>Outlet</ion-col>
+      <ion-col>: {{outlet}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>Tanggal</ion-col>
+      <ion-col>: {{TglSO}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>Terkirim</ion-col>
+      <ion-col>: {{SysDate}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>Netto</ion-col>
+      <ion-col>: Rp. {{NettoSO | number}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>Note</ion-col>
+      <ion-col>: {{KeteranganSO}}</ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col col-4>Status</ion-col>
+      <ion-col>: {{status_order}}</ion-col>
+    </ion-row> -->
+
+    <!-- <div>
+      <button ion-button clear style="text-transform: none;" (click)="getCheckOrder()">Cek Status Order</button>
+    </div> -->
+
+  </div>
+
+
+  <div padding class="table-responsive fitscreen">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" style="text-align: left;">No</th>
+          <th scope="col" style="text-align: left;">PCode</th>
+          <th scope="col" style="text-align: left;">Produk</th>
+          <th scope="col" style="text-align: left;">Qty</th>
+          <th scope="col" style="text-align: left;">Jenis</th>
+          <th scope="col" style="text-align: left;">Jumlah</th>
+          <th scope="col" style="text-align: left;">Netto</th>
+          <th scope="col" style="text-align: left;">Promo</th>
+          <th scope="col" style="text-align: left;" nowrap>Tanggal Input</th>
+          <th scope="col" style="text-align: left;">Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let so of detail_trans">
+          <th nowrap scope="row">{{so.number}}</th>
+          <td nowrap>{{so.PCode}}</td>
+          <td nowrap>{{so.NamaBarang}}</td>
+          <td nowrap>{{so.Qty}}</td>
+          <td nowrap>{{so.Jenis}}</td>
+          <td nowrap>Rp. {{so.Jumlah | number}}</td>
+          <td nowrap>Rp. {{so.Netto | number}}</td>
+          <td nowrap>{{so.tipe_promo}}</td>
+          <td nowrap>{{so.AddDate | date:'dd MMMM yyyy HH:mm:ss'}}</td>
+          <td nowrap>{{so.Keterangan}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</ion-content>
